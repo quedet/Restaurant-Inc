@@ -37,8 +37,6 @@ export default function IndexPage () {
         }
     `)
 
-    console.log(Menu);
-
     return (
         <Layout>
             <Seo title={"Welcome"} />
