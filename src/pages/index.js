@@ -30,6 +30,7 @@ export default function IndexPage () {
                     img {
                         gatsbyImageData
                         title
+                        url
                     }
                 }
             }
@@ -105,7 +106,13 @@ export default function IndexPage () {
                                             <p>${item.price}</p>
                                         </div>
                                         <div className="card-item-content-bottom-action card-item-footer-item">
-                                            <button>ORDER</button>
+                                            <button className="snipcart-add-item"
+                                                data-item-id={item.id}
+                                                data-item-name={item.name}
+                                                data-item-price={item.price}
+                                                data-item-image={item.img.url}
+                                                data-item-url="https://restaurant-inc.netlify.app/"
+                                            >ORDER</button>
                                         </div>
                                     </div>
                                 </div>

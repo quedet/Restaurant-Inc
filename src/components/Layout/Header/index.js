@@ -38,6 +38,11 @@ export default function HeaderContainer () {
                             </Link>
                         </div>
                    ))}
+                   <div className="navbar-menu-item">
+                        <Link to="#" activeClassName="active"  className="navbar-menu-item-link snipcart-checkout">
+                            Checkout
+                        </Link>
+                    </div>
                 </div>
                 {/* <div className="navbar-social"></div> */}
             </div>
