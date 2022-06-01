@@ -1,0 +1,100 @@
+.sections {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 3rem;
+}
+
+.section-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    .section-item-header {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+
+        .title {
+            font-size: 2rem;
+            letter-spacing: 2px;
+            line-height: normal;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: $Yellow;
+            line-height: normal;
+        }
+
+        .underline {
+            width: 4rem;
+            height: 5px;
+            background-color: $Yellow;
+        }
+    }
+
+    .section-item-content {
+        p {
+            line-height: 1.8;
+        }
+    }
+}
+
+.section-gallery {
+    .gallery-header {
+        justify-content: center;
+        display: flex;
+
+        div {
+            padding: 1rem 2rem;
+            text-transform: uppercase;
+            border: 1px solid $mainBlack;
+            width: auto;
+        }
+    }
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(6, 4rem);
+        gap: 1rem;
+
+        .gallery-grid-item-main {
+            grid-column: 1 / span 3;
+            grid-row: 1 / -1;
+        }
+
+        .gallery-grid-item-one {
+            grid-column: 4 / span 3;
+            grid-row: 1 / span 3;
+        }
+
+        .gallery-grid-item-two {
+            grid-column: 4 / span 3;
+            grid-row: 4 / span 3
+        }
+
+        .gallery-grid-item {
+            position: relative;
+
+            .gallery-grid-item-tags {
+                position: absolute;
+                top: 0;
+                left: 0;
+
+                span {
+                    display: inline-block;
+                    padding: 0.5rem;
+                    background-color: $Yellow;
+                    color: #000;
+                }
+            }
+
+            .gallery-grid-item-header, .gallery-grid-item-header-media {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
