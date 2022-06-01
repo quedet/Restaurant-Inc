@@ -39,5 +39,11 @@ module.exports = {
       spaceId: process.env.CONTENTFUL_SPACE_ID,
       accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
     }
+  }, {
+    resolve: `gatsby-plugin-snipcartv3`,
+    options: {
+      apiKey: process.env.SNIPCART_API,
+      autopop: true
+    }
   }]
 };
