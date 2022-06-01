@@ -16,6 +16,7 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
+    "dotenv": "^16.0.1",
     "gatsby": "^4.15.1",
     "gatsby-plugin-image": "^2.15.0",
     "gatsby-plugin-manifest": "^4.15.0",
@@ -24,6 +25,7 @@
     "gatsby-plugin-sass": "^5.15.0",
     "gatsby-plugin-sharp": "^4.15.0",
     "gatsby-plugin-sitemap": "^5.15.0",
+    "gatsby-source-contentful": "^7.13.1",
     "gatsby-source-filesystem": "^4.15.0",
     "gatsby-transformer-sharp": "^4.15.0",
     "react": "^18.1.0",

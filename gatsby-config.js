@@ -1,3 +1,10 @@
+const dotenv = require('dotenv')
+const path = require('path')
+
+dotenv.config({
+  path: path.resolve(__dirname, `.env`)
+})
+
 module.exports = {
   siteMetadata: {
     title: `Restaurant Inc.`,
@@ -26,5 +33,11 @@ module.exports = {
       "path": "./src/pages/"
     },
     __key: "pages"
+  }, {
+    resolve: `gatsby-source-contentful`,
+    options: {
+      spaceId: process.env.CONTENTFUL_SPACE_ID,
+      accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
+    }
   }]
 };

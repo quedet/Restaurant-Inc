@@ -5,7 +5,7 @@ import Layout from "../components/Layout"
 import Seo from "../components/Seo"
 
 export default function IndexPage () {
-    const { mainFile, fileOne, fileTwo } = useStaticQuery(graphql`
+    const { mainFile, fileOne, fileTwo, Articles: { nodes: Menu } } = useStaticQuery(graphql`
         query {
             mainFile: file(relativePath: {eq: "gallery/victoria-shes-UC0HZdUitWY-unsplash.jpg"}) {
                 childImageSharp {
@@ -22,8 +22,21 @@ export default function IndexPage () {
                     gatsbyImageData
                 }
             }
+            Articles: allContentfulMenu {
+                nodes {
+                    name
+                    price
+                    id
+                    img {
+                        gatsbyImageData
+                        title
+                    }
+                }
+            }
         }
     `)
+
+    console.log(Menu);
 
     return (
         <Layout>
@@ -36,7 +49,7 @@ export default function IndexPage () {
                         <div className="underline"></div>
                     </header>
                     <div className="section-item-content">
-                        <p>Our mission is to serve you authentic dishes from north karnataka. These dishes are created by ou top chefs, from the region. Some of our awesome dishes are - Menthe Kadabu, Pendi Soppu, Jolad Rotti, Ragi Ambali, Nargis Man, Dak Ki, Mudde, Girmit an many more.</p>
+                        <p>Our mission is to provide happiness and joy through food to every customer who chooses to dine at Restaurant, while not exceeding, making the size of a pin hole on their pockets</p>
                     </div>
                 </section>
                 <section className="section-item section-gallery">
@@ -72,6 +85,33 @@ export default function IndexPage () {
                         <div className="title">FEATURED ITEMS</div>
                         <div className="underline"></div>
                     </header>
+                    <div className="section-item-content section-item-content-menu">
+                        { Menu && Menu.map(item => (
+                            <article key={item.id} className="card-item">
+                                <header className="card-item-header">
+                                    <GatsbyImage className="card-item-header-media" image={item.img.gatsbyImageData} alt={item.img.title} />
+                                </header>
+                                <div className="card-item-content">
+                                    <div className="card-item-content-top">
+                                        <div role="heading" aria-level="3" className="card-item-content-name card-item-content-item">
+                                            {item.name}
+                                        </div>
+                                        <div className="card-item-content-ingredient card-item-content-item">
+
+                                        </div>
+                                    </div>
+                                    <div className="card-item-content-bottom">
+                                        <div className="card-item-content-bottom-price card-item-footer-item">
+                                            <p>${item.price}</p>
+                                        </div>
+                                        <div className="card-item-content-bottom-action card-item-footer-item">
+                                            <button>ORDER</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        ))}
+                    </div>
                 </section>
             </div>
         </Layout>
